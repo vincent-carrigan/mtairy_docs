@@ -1,3 +1,4 @@
+
 import os
 import sys
 import pandas as pd
@@ -7,6 +8,7 @@ import time
 from os.path import isfile
 from pathlib import Path
 from configparser import ConfigParser
+import shutil
 
 pd.set_option('display.max_columns', None)
 pd.set_option('display.max_rows', None)
@@ -124,4 +126,5 @@ for c in crc_list:
     formatted_list.append(file_name)
 
 for f in formatted_list:
-    print(f)
+    print('Copying' + f)
+    shutil.copy(os.path.join(mtairy_docs_path, f), os.path.join(mtairy_colonoscopy_path, f))
